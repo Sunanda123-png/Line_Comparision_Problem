@@ -16,10 +16,7 @@ class Line:
     def __init__(self, line_dict):
         """
         Initialize the attribute
-        :param x1:
-        :param x2:
-        :param y1:
-        :param y2:
+        :param line_dict:
         """
         self.name = line_dict.get("name")
         self.x1 = line_dict.get("x1")
@@ -45,14 +42,14 @@ class LineComparision:
         self.line_list = []
         self.line_length = []
 
-    def add_line(self, line):
+    def add_line(self, line_l):
         """
         Adding the line in list
-        :param line:
+        :param line_l:
         :return:
         """
         try:
-            self.line_list.append(line)
+            self.line_list.append(line_l)
         except Exception:
             logging.exception("Enter integer value")
 
@@ -61,37 +58,33 @@ class LineComparision:
         Display the input value
         :return:
         """
-        for line in self.line_list:
-            print("Line name is:- ", line.name)
-            print("X1 value is:- ", line.x1)
-            print("X2 value is:- ", line.x2)
-            print("Y1 value is:- ", line.y1)
-            print("Y2 value is:- ", line.y2)
+        for line_l in self.line_list:
+            print("Line name is:- ", line_l.name)
+            print("X1 value is:- ", line_l.x1)
+            print("X2 value is:- ", line_l.x2)
+            print("Y1 value is:- ", line_l.y1)
+            print("Y2 value is:- ", line_l.y2)
 
     def finding_length(self):
         """
         finding the length of line
         :return:
         """
-        for line in self.line_list:
-            line.calculate_length()
-            print("The line name is", line.name, line.calculate_length())
-            self.line_length.append(line.calculate_length())
-        print(self.line_length)
+        print(line.name, line.calculate_length())
 
     def check_equality(self):
         """
         checking the equality of line inputted by the user with comparing
         :return:
         """
-        for i in range(len(self.line_length)):
-            for j in range(i + 1, len(self.line_length)):
-                if str(self.line_length[i]).__eq__(str(self.line_length[j])):
-                    print(str(self.line_length[i]) + "Length of Line is equal" +
-                          str(self.line_length[j]))
+        for i in range(len(self.line_list)):
+            for j in range(i + 1, len(self.line_list)):
+                if str(self.line_list[i].calculate_length()).__eq__(str(self.line_list[j].calculate_length())):
+                    print(str(self.line_list[i].calculate_length()) + " Length of Line is equal " +
+                          str(self.line_list[j].calculate_length()))
                 else:
-                    print(str(self.line_length[i]) + "Length of Line is not equal" +
-                          str(self.line_length[j]))
+                    print(str(self.line_list[i].calculate_length()) + " Length of Line is not equal " +
+                          str(self.line_list[j].calculate_length()))
 
 
 if __name__ == "__main__":
