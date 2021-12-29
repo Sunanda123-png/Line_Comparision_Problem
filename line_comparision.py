@@ -45,8 +45,7 @@ class LineComparision:
     def add_line(self, line_l):
         """
         Adding the line in list
-        :param line_l:
-        :return:
+        :param line_l:as a object
         """
         try:
             self.line_list.append(line_l)
@@ -56,7 +55,6 @@ class LineComparision:
     def display(self):
         """
         Display the input value
-        :return:
         """
         for line_l in self.line_list:
             print("Line name is:- ", line_l.name)
@@ -68,14 +66,12 @@ class LineComparision:
     def finding_length(self):
         """
         finding the length of line
-        :return:
         """
         print(line.name, line.calculate_length())
 
     def check_equality(self):
         """
         checking the equality of line inputted by the user with comparing
-        :return:
         """
         for i in range(len(self.line_list)):
             for j in range(i + 1, len(self.line_list)):
@@ -90,10 +86,6 @@ class LineComparision:
 if __name__ == "__main__":
 
     line_comaprision = LineComparision()
-
-    """
-    Creating object for Line class and calling calculation
-    """
     try:
         while True:
             print("""Your choices:-
